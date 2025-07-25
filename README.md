@@ -1,6 +1,6 @@
-# Marketplace APP
+# Bookstore APP
 
-Welcome to my Marketplace APP.
+Welcome to my Bookstore APP.
 
 ## 🚀 Technologies
 
