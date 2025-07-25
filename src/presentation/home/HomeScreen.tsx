@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import { AuthScreen } from "../auth";
 import { useDispatch, useSelector } from "react-redux";
 import { UserThunk, type StoreModel } from "../store";
-import { SellerScreen } from "./seller/SellerScreen";
-import { AdminScreen } from "./admin/AdminScreen";
 import { LibraryScreen } from "./library/LibraryScreen";
 import { EmptyState } from "../shared";
 import { Box } from "@mui/material";
@@ -49,9 +47,6 @@ export const HomeScreen = () => {
             onButtonClick={() => setOpenModal(true)}
           ></EmptyState>
         )}
-        {/* {logged.data?.role === "seller" && <SellerScreen />}
-        {logged.data?.role === "admin" && <AdminScreen />}
-        {(!logged.data || logged.data?.role === "client") && <ClientScreen />} */}
       </Box>
       {openModal && (
         <AuthScreen open={openModal} handleClose={() => setOpenModal(false)} />
