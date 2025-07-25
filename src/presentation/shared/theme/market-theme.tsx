@@ -2,13 +2,12 @@ import { createTheme } from "@mui/material";
 
 export const marketTheme = createTheme({
   palette: {
-    mode: 'dark',
+    mode: 'light',
     primary: {
-      "100": '#0000ff',
-      main: '#FDBA74'
+      main: '#1E3A8A'
     },
     secondary: {
-      main: '#60A5FA'
+      main: '#B91C1C'
     }
   }
 });

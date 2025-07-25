@@ -16,8 +16,9 @@ export class UserThunk {
   public static startLogin(payload: AuthUser) {
     return async (dispatch: UserDispatch) => {
       try {
-        const user = await this.repository.login(payload);
-        dispatch(login(user));
+        await this.repository.login(payload);
+        const userInfo = await this.repository.get();
+        dispatch(login(userInfo));
       } catch (e) {
         dispatch(loginError());
       }

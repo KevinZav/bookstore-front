@@ -10,16 +10,16 @@ export class UserDatasourceMarket extends UserDatasource {
     const { token } = response.data;
     JwtTokenConfig.set(token);
 
-    return UserMapper.userResponseToEntity(response.data.payload);
+    return payload;
   }
   async sign(payload: User): Promise<Partial<User>> {
     const body = UserMapper.entityToPayload(payload);
-    const response = await MarketConnection.connect.post<UserResponse>('/auth/register', body);
+    const response = await MarketConnection.connect.post<UserResponse>('/auth/sign', body);
     
     const { token } = response.data;
     JwtTokenConfig.set(token);
 
-    return UserMapper.userResponseToEntity(response.data.payload);
+    return payload;
   }
   async get(): Promise<User> {
     const response = await MarketConnection.connect.get<UserPayload>('/auth/info');

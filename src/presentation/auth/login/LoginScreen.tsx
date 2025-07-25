@@ -9,12 +9,12 @@ interface Props {
 
 export const LoginScreen = ({ primaryButton, secondaryButton }: Props) => {
   const initialValues: AuthUser = {
-    email: "",
+    username: "",
     password: "",
   };
 
   const onSubmit = async () => {
-    setTouched({ email: true, password: true }, true);
+    setTouched({ username: true, password: true }, true);
 
     validateForm(values).then((errors) => {
       if (hasErrors(errors)) return;
@@ -46,12 +46,12 @@ export const LoginScreen = ({ primaryButton, secondaryButton }: Props) => {
             <TextField
               size="small"
               label="Correo electrónico"
-              name="email"
-              value={values.email}
+              name="username"
+              value={values.username}
               onChange={formik.handleChange}
               onBlur={handleBlur}
-              error={touched.email && Boolean(errors.email)}
-              helperText={touched.email && errors.email}
+              error={touched.username && Boolean(errors.username)}
+              helperText={touched.username && errors.username}
               fullWidth
             ></TextField>
           </Grid>

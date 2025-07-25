@@ -1,14 +1,12 @@
-import type { RolesType, User } from "../../domain";
+import type { User } from "../../domain";
 import type { UserPayload } from "../models";
 
 export class UserMapper {
   public static userResponseToEntity(response: UserPayload) {
-    const { email, name, role, password } = response;
-    const formatRole = role as RolesType;
+    const { username, password } = response;
     const user: User = {
-      email,
-      name,
-      role: formatRole,
+      email: username,
+      name: '',
       password: password
     }
 
@@ -17,9 +15,8 @@ export class UserMapper {
 
   public static entityToPayload(user: User) {
     const payload: UserPayload = {
-      email: user.email,
+      username: user.email,
       name: user.name,
-      role: user.role,
       password: user.password
     };
     return payload;

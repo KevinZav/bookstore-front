@@ -1,4 +1,3 @@
-import { ShoppingCartRounded, StoreRounded } from "@mui/icons-material";
 import { Button, Grid, TextField } from "@mui/material";
 import { userSchema, type User } from "../../../domain";
 import { Form, Formik, useFormik } from "formik";
@@ -14,7 +13,6 @@ export const SignScreen = ({ primaryButton, secondaryButton }: Props) => {
     name: "",
     password: "",
     validatePassword: "",
-    role: "seller",
   };
 
   const onSubmit = async () => {
@@ -34,7 +32,7 @@ export const SignScreen = ({ primaryButton, secondaryButton }: Props) => {
     onSubmit,
     validationSchema: userSchema,
   });
-  const { values, handleBlur, errors, touched, setTouched, setFieldValue, validateForm } =
+  const { values, handleBlur, errors, touched, setTouched, validateForm } =
     formik;
 
   const hasErrors = (errors: any) => {
@@ -49,41 +47,6 @@ export const SignScreen = ({ primaryButton, secondaryButton }: Props) => {
         onSubmit={onSubmit}
       >
         <Form>
-          <Grid size={12} marginBottom={2} gap={1} display="flex">
-            <Button
-              color="primary"
-              size="small"
-              variant={values.role === "seller" ? "contained" : "text"}
-              startIcon={<StoreRounded />}
-              fullWidth
-              onClick={() => setFieldValue("role", "seller")}
-            >
-              Vendedor
-            </Button>
-            <Button
-              color="primary"
-              size="small"
-              variant={values.role === "client" ? "contained" : "text"}
-              startIcon={<ShoppingCartRounded />}
-              fullWidth
-              onClick={() => setFieldValue("role", "client")}
-            >
-              Cliente
-            </Button>
-          </Grid>
-          <Grid size={12} marginBottom={2}>
-            <TextField
-              size="small"
-              label="Nombre"
-              name="name"
-              value={values.name}
-              onChange={formik.handleChange}
-              onBlur={handleBlur}
-              error={touched.name && Boolean(errors.name)}
-              helperText={touched.name && errors.name}
-              fullWidth
-            />
-          </Grid>
           <Grid size={12} marginBottom={2}>
             <TextField
               size="small"

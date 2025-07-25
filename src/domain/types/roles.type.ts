@@ -1,1 +1,0 @@
-export type RolesType = 'admin' | 'client' | 'seller';
