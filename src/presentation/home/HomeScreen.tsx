@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { AuthScreen } from "../auth";
 import { useDispatch, useSelector } from "react-redux";
 import { UserThunk, type StoreModel } from "../store";
@@ -13,18 +13,6 @@ export const HomeScreen = () => {
   useEffect(() => {
     dispatch(UserThunk.startGetInfo());
   }, []);
-
-  const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null);
-
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClosePopover = () => {
-    setAnchorEl(null);
-  };
-
-  const openPopover = Boolean(anchorEl);
 
   const [openModal, setOpenModal] = useState(false);
 
